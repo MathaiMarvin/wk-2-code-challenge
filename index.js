@@ -27,7 +27,7 @@
 // //             $<span class="card-header button">${character.votes}</span> Votes
 // //         </p>
 // //     <div>
-    
+
 // //     `
 // //     //add the charactersto the DOM
 // //     document.querySelector('#character-card').appendChild(card);
@@ -44,10 +44,9 @@
 // // //Get the data and render the characters to the DOM
 // // function bringCharacters(){
 // //     getAllCharacters()
-    
+
 // // }
 // // bringCharacters()
-
 
 // document.addEventListener('DOMContentLoaded', (_)=>{
 //     let form = document.querySelector('form')
@@ -73,12 +72,11 @@
 //         ${character.votes} Votes
 //         </p>
 //     <div>
-    
+
 //     `
 //     //add the charactersto the DOM
 //     document.querySelector('#thy-animals').appendChild(animalCharacter);
 // }
-
 
 // document.addEventListener('DOMContentLoaded', (_)=>{
 // let charactersUrl = "http://localhost:3000/characters"
@@ -87,19 +85,11 @@
 
 //     const res = await fetch(charactersUrl)
 //     const data = await res.json()
-    
+
 //     return data
 // }
 
-
 // const chars = getAnimals()
-
-
-
-
-
-
-
 
 // get input
 
@@ -109,40 +99,58 @@
 
 //     let oneChar =  characters.find(char => char.name === inputValue).createElement('li');
 //     return oneChar
-    
+
 //     document.querySelector('#thy-animals').appendChild(oneChar);
 // }
 
-
-// //  //Getting one name from the list 
+// //  //Getting one name from the list
 //  function findByName (name) {
-   
+
 //     return name.find(item = item.name === value)
 //  }
 
-
 // // const names = [{name: 'one', num: 2}, {name: 'two', num: 3},]
-
-
 
 // // console.log(findByName(names))
 
 // })
 
-const init =()=>{
-    const inputForm = document.querySelector('form');
-    inputForm.addEventListener('submit', (e)=>{
-        e.preventDefault();
+const init = () => {
+  const inputForm = document.querySelector("form");
+  inputForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        const input = document.querySelector('input#animal-name');
+    const input = document.querySelector("input#animal-name");
 
-        fetch(`http://localhost:3000/characters/${input.value}`)
-        .then(response => response.json())
-        .then(
-            data=>{
-                console.log(data);
-            }
-        )
-    })  
-}
-init()
+    inputForm.addEventListener("click", () => {});
+
+    fetch(`http://localhost:3000/characters/${input.value}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        const chars = document.querySelector("#thy-animals");
+
+        const p = document.createElement("p");
+        p.innerHTML = `
+            <img src='${data.image}'>
+            <h4>${data.name}</h4>
+            <p id='votes-count'> Votes ${data.votes} 
+            </p>
+        `;
+        chars.append(p);
+
+        const button = document.createElement('button');
+        button.id = 'add-votes'
+        chars.append(button)
+
+        inputForm.addEventListener("click", () => {
+          chars.removeChild(p);
+        });
+        // if (input.value) {
+        //   chars.remove(P);
+        // }
+      });
+  });
+  //   inputForm.reset();
+};
+init();

@@ -46,7 +46,8 @@ body, css {
     border-right: none;
     Border-left: none;
     }
-.btn{
+
+#btn-submit{
     width: 240px;
     margin-top: 40px;
     padding: 12px 22px;
