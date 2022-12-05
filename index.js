@@ -133,16 +133,22 @@ const init = () => {
         const p = document.createElement("p");
         p.innerHTML = `
             <img src='${data.image}'>
-            <h4>${data.name}</h4>
+            <h4>${data.name} </h4>
             <p id='votes-count'> Votes ${data.votes} 
+            <br>
+            <button id ='add-votes' onClick="addVotes()">Add Votes</button>
             </p>
         `;
         chars.append(p);
 
-        const button = document.createElement('button');
-        button.id = 'add-votes'
-        chars.append(button)
+        let btn = document.getElementById('votes-count')
+        btn.addEventListener('click', ()=>{
+            const votesIncreasing = data.votes+=1;
+            btn.textContent = `Votes ${votesIncreasing}`
+        })
 
+      
+        
         inputForm.addEventListener("click", () => {
           chars.removeChild(p);
         });
@@ -153,4 +159,4 @@ const init = () => {
   });
   //   inputForm.reset();
 };
-init();
+document.addEventListener('DOMContentLoaded', init);
