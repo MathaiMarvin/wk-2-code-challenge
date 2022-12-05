@@ -14,11 +14,11 @@ To be able to use this repository on your machine one needs to:
 - Open a terminal on your computer
 - Clone the repo by using the following:
 git clone git@github.com:MathaiMarvin/wk-2-code-challenge.git
-- Change directory to the repository folder
-cd wk-2-code-challenge
+- Change directory to the repository folder:
+cd wk-2-code-challenge:
 - Open in code editor: Visual Studio Code:
 code .
-- Ensure that JSON server installed in your machine
+- Ensure that JSON server installed in your machine:
 npm install -g json-server
 
 # Running the application
