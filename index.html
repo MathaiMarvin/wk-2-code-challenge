@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./stylesheets/style.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Week 2 Code Challenge</title>
+</head>
+<body>
+    <main>
+    <div class = "container mx-auto">
+        <h1 class="text-center text-3xl text-indigo-400 py-12">Week 2 Code Challenge</h1>
+        <div class="card">
+            <div class="card-header">
+                <h3>Animal Names</h3>
+            </div>
+            
+
+            <div class="card-body" id="character-card">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Animal Name
+                            </th>
+                            <th class="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                ID
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="tbody">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-left text-gray-900">
+                                    Mr. Cute
+                                </div>
+
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font font-semibold text-gray-900">1</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-left text-gray-900">
+                                    Mx. Monkey
+                                </div>
+
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font font-semibold text-gray-900">2</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-left text-gray-900">
+                                    Ms. Zebra
+                                </div>
+
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font font-semibold text-gray-900">3</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-left text-gray-900">
+                                    Dr. Lion
+                                </div>
+
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font font-semibold text-gray-900">4</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-left text-gray-900">
+                                    Mme. Panda
+                                </div>
+
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 inline-flex text-xs leading-5 font font-semibold text-gray-900">5</span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                    <p>Search animal name to see all its details below</p>
+                    <br>
+                    <form id="get-name">
+                        <input type = 'text' id ='animal-name' class="entry" placeholder="Enter Animal Name">  Enter Animal Name</input>
+                        <br>
+                        <input type = 'submit' id ='btn-submit' class="btn"></input>
+                    </form>
+                    <br>
+                    <p id="thy-animals"></p>
+            
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <script src="./index.js"></script>
+</body>
+</html>
