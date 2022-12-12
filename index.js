@@ -40,45 +40,6 @@ function addingNames(chars){
   })
 }
 
-//Rendering of the animal details to the page once name is clicked
-//function renderingOneCharacter(chars){
-
-
-  
-
- 
-
-  // fetch(charactersUrl)
-  //   .then(res=>res.json())
-  //   .then( (char) =>{
-  //     //create a display of all the animal attributes
-  //     let allAnimalAttributes = document.createElement('li');
-  //     //Using innerHTML to get a full display of all the lists
-  //     allAnimalAttributes.innerHTML = `
-      
-  //     <img src="${char.image}">
-  //     <h4 id="votes"> Votes: ${char.votes} </h4>
-  //     <button>Vote</button>
-  //     <h4>${char.name}</h4>
-      
-  //     `
-  //     //append the displayed attributes to the paragraph to card to be displayed
-  //     let displayDiv = document.getElementById('animal-display')
-  //     displayDiv.append(allAnimalAttributes);
-    
-
-
-
-
-    // }
-
-
-
-
-    // )
-  //}
-
-
 
 loadAllCharacters()
 })
