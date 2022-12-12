@@ -1,162 +1,84 @@
-// // function getCharacters(){
+//Begin by initializing necessary variables:
+let charactersUrl = "http://localhost:3000/characters"
 
-// //     fetch ('http://localhost:3000/characters')
-// //     .then(res=>res.json())
-// //     .then((data)=>{
-// //         renderingCharacters(data)
-// //     })
-// // }
+document.addEventListener('DOMContentLoaded', ()=>{
 
-// // function renderingCharacters(){
-// //     CharacterData.foreahc
-// // }
-// // document.querySelector('DOMContentLoaded', function(){
-// //     getCharacters();
-// // });
+  //fetch all animals from json server
 
-// //DOM Manipulation
-// // function renderOneCharacter(character){
-// //     //Build the characters
-// //     let card = document.createElement('li')
-// //     card.className = 'card'
-// //     card.innerHTML = `
-// //     <img src='${character.image}'>
-// //     <div class='display'>
-// //         <h4>${character.name}<h4>
-// //         <p>
-// //             $<span class="card-header button">${character.votes}</span> Votes
-// //         </p>
-// //     <div>
+function loadAllCharacters(){
+  fetch(charactersUrl)
+    .then(res => res.json())
+    .then((data) =>{
+      addingNames(data);
+    })
+} 
+// Rendering only the animal names on the page
+function addingNames(chars){
+  chars.forEach((element)=>{
+    const animalName = document.createElement('h3');
 
-// //     `
-// //     //add the charactersto the DOM
-// //     document.querySelector('#character-card').appendChild(card);
-// // }
-
-// // //Fetch requests
-// // function getAllCharacters(){
-// //     fetch (' http://localhost:3000/characters')
-// //     .then(res => res.json())
-// //     .then(characters1 => characters1.forEach(character =>renderOneCharacter(character)))
-// // }
-
-// // //The first thing that gets to load from J.S
-// // //Get the data and render the characters to the DOM
-// // function bringCharacters(){
-// //     getAllCharacters()
-
-// // }
-// // bringCharacters()
-
-// document.addEventListener('DOMContentLoaded', (_)=>{
-//     let form = document.querySelector('form')
-//     form.addEventListener('submit', (e)=>{
-//         e.preventDefault()
-//         fetch (' http://localhost:3000/characters')
-//         .then(res => res.json())
-//         .then(characters =>renderOneCharacter(character))
-//         form.reset();
-//     })
-// })
-
-// function renderOneCharacter(character){
-//     //Build the characters
-//     let animalCharacter = document.createElement('li')
-//     animalCharacter.className = 'animals-done'
-//     animalCharacter.innerHTML = `
-//     <img src='${character.image}'>
-//     <div class='display'>
-//         <h4>${character.name}<h4>
-//         <br>
-//         <p>
-//         ${character.votes} Votes
-//         </p>
-//     <div>
-
-//     `
-//     //add the charactersto the DOM
-//     document.querySelector('#thy-animals').appendChild(animalCharacter);
-// }
-
-// document.addEventListener('DOMContentLoaded', (_)=>{
-// let charactersUrl = "http://localhost:3000/characters"
-
-// async function getAnimals(){
-
-//     const res = await fetch(charactersUrl)
-//     const data = await res.json()
-
-//     return data
-// }
-
-// const chars = getAnimals()
-
-// get input
-
-// function findCHARACTERbyName(characters){
-//     // const inputValue = document.querySelector('#id').value
-//     let inputValue = document.querySelector('#animal-name').value
-
-//     let oneChar =  characters.find(char => char.name === inputValue).createElement('li');
-//     return oneChar
-
-//     document.querySelector('#thy-animals').appendChild(oneChar);
-// }
-
-// //  //Getting one name from the list
-//  function findByName (name) {
-
-//     return name.find(item = item.name === value)
-//  }
-
-// // const names = [{name: 'one', num: 2}, {name: 'two', num: 3},]
-
-// // console.log(findByName(names))
-
-// })
-
-const init = () => {
-  const inputForm = document.querySelector("form");
-  inputForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const input = document.querySelector("input#animal-name");
-
-    inputForm.addEventListener("click", () => {});
-
-    fetch(`http://localhost:3000/characters/${input.value}`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        const chars = document.querySelector("#thy-animals");
-
-        const p = document.createElement("p");
-        p.innerHTML = `
-            <img src='${data.image}'>
-            <h4>${data.name} </h4>
-            <p id='votes-count'> Votes ${data.votes} 
-            <br>
-            <button id ='add-votes' onClick="addVotes()">Add Votes</button>
-            </p>
-        `;
-        chars.append(p);
-
-        let btn = document.getElementById('votes-count')
-        btn.addEventListener('click', ()=>{
-            const votesIncreasing = data.votes+=1;
-            btn.textContent = `Votes ${votesIncreasing}`
-        })
-
+    animalName.textContent = element.name;
+    let p = document.getElementById('char-name');
+    p.appendChild(animalName);
+    animalName.addEventListener('click', ()=>{
       
-        
-        inputForm.addEventListener("click", () => {
-          chars.removeChild(p);
-        });
-        // if (input.value) {
-        //   chars.remove(P);
-        // }
-      });
-  });
-  //   inputForm.reset();
-};
-document.addEventListener('DOMContentLoaded', init);
+      document.getElementById('character-name').textContent = element.name
+      document.getElementById('char-img').src=element.image
+
+      let btn = document.getElementById('char-votes')
+      btn.textContent = `Votes: ${element.votes}`
+      btn.addEventListener('click', ()=>{
+        element.votes+=1
+
+        btn.textContent = `Votes: ${element.votes}`
+      })
+  
+    
+    
+      
+      })
+  })
+}
+
+//Rendering of the animal details to the page once name is clicked
+//function renderingOneCharacter(chars){
+
+
+  
+
+ 
+
+  // fetch(charactersUrl)
+  //   .then(res=>res.json())
+  //   .then( (char) =>{
+  //     //create a display of all the animal attributes
+  //     let allAnimalAttributes = document.createElement('li');
+  //     //Using innerHTML to get a full display of all the lists
+  //     allAnimalAttributes.innerHTML = `
+      
+  //     <img src="${char.image}">
+  //     <h4 id="votes"> Votes: ${char.votes} </h4>
+  //     <button>Vote</button>
+  //     <h4>${char.name}</h4>
+      
+  //     `
+  //     //append the displayed attributes to the paragraph to card to be displayed
+  //     let displayDiv = document.getElementById('animal-display')
+  //     displayDiv.append(allAnimalAttributes);
+    
+
+
+
+
+    // }
+
+
+
+
+    // )
+  //}
+
+
+
+loadAllCharacters()
+})

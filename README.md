@@ -13,17 +13,25 @@ In order to be able to use this particular repository one needs to have the foll
 To be able to use this repository on your machine one needs to:
 - Open a terminal on your computer
 - Clone the repo by using the following:
-git clone git@github.com:MathaiMarvin/wk-2-code-challenge.git
+
+        git clone git@github.com:MathaiMarvin/wk-2-code-challenge.git
 - Change directory to the repository folder
-cd wk-2-code-challenge
+
+        cd wk-2-code-challenge
+
 - Open in code editor: Visual Studio Code:
-code .
+
+        code .
+
 - Ensure that JSON server installed in your machine
-npm install -g json-server
+
+        npm install -g json-server
 
 # Running the application
 - Start the JSON server:
-json-server --watch db.json
+
+        json-server --watch db.json
+
 - Open html on browser to display the webpage using liveserver
 - The web application has a search by id bar to be able to call the animal based on id and display its attribute.
 
